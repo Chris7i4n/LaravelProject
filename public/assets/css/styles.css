@@ -1,0 +1,50 @@
+@font-face {
+  font-family: Gibson;
+  src: url(../fonts/Gibson-Regular.otf);
+}
+
+* {
+  font-family: Gibson;
+  letter-spacing: 2px;
+}
+
+.button-dashboard {
+  height: 117px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  font-size: 20px;
+}
+
+#button-new-register {
+  background-color: rgb(66, 114, 177);
+}
+
+#button-accompaniment {
+  background-color: rgb(255, 130, 28);
+}
+
+#button-files {
+  background-color: rgb(64, 196, 255);
+}
+
+#sidebar {
+  color: #fff;
+  background-image: linear-gradient(to right bottom, #103d24, #113d25, #123e26, #207a48);
+}
+
+a:hover .nav-link {
+  background-color: transparent;
+  color: #fff;
+}
+
+#button-search {
+  border: transparent;
+  margin-top: 8px;
+  padding: 5px;
+  background-color: transparent;
+  color: #333333;
+}
