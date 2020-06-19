@@ -15,7 +15,7 @@ class CreateLocalitiesTable extends Migration
     {
         Schema::create('localities', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('locality_name');
             $table->timestamps();
         });
     }

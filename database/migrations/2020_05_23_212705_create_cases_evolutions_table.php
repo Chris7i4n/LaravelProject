@@ -18,7 +18,6 @@ class CreateCasesEvolutionsTable extends Migration
             $table->boolean('sinan_identification_form_completed');
             $table->boolean('sinan_identification_form_forwarded');
             $table->boolean('warning_conselho_tutelar');
-            $table->timestamps();
 
         });
     }

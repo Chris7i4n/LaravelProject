@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ViolationAgent extends Model
 {
     protected $fillable = [
-        'kinship','gender_id','age'
+        'kinship_id','gender_id','age_range_id'
     ];
 
 
@@ -17,5 +17,13 @@ class ViolationAgent extends Model
 
     public function Violated(){
         return $this->belongsTo(Violated::class);
+    }
+
+    public function AgeRangesViolationAgent(){
+        return $this->belongsTo('App\AgeRangesViolationAgent','age_range_id');
+    }
+
+    public function Kinship(){
+        return $this->belongsTo(Kinship::class);
     }
 }

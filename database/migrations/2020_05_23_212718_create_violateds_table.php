@@ -15,17 +15,19 @@ class CreateViolatedsTable extends Migration
     {
         Schema::create('violateds', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('gender_id');
-            $table->integer('age');
-            $table->integer('ethnicity_id');
-            $table->boolean('is_deficient');
-            $table->integer('locality_id');
-            $table->integer('violation_agent_id');
-            $table->integer('user_id');
+            $table->string('name')->nullable();
+            $table->integer('gender_id')->nullable();
+            $table->integer('age_range_id')->nullable();
+            $table->integer('ethnicity_id')->nullable();
+            $table->boolean('is_deficient')->nullable();
+            $table->integer('locality_id')->nullable();
+            $table->integer('violation_agent_id')->nullable();
+            $table->date('violation_date')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         
         
+
         $table->foreign('gender_id')
               ->references('id')
               ->on('genders')

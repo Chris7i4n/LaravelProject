@@ -8,6 +8,16 @@
   letter-spacing: 2px;
 }
 
+#notification {
+  color: #fff;
+}
+
+.footer {
+  height: 53px;
+  display: flex;
+  justify-items: center;
+}
+
 .button-dashboard {
   height: 117px;
   color: #fff;
@@ -47,4 +57,70 @@ a:hover .nav-link {
   padding: 5px;
   background-color: transparent;
   color: #333333;
+}
+
+.button-submit {
+  border-radius: 15px;
+}
+
+span#titulo-documento {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+span#descricao {
+  margin-left: 10px;
+}
+
+#header {
+  padding: 70px 20px;
+  color: #fff;
+}
+
+#initial {
+  font-size: 50px;
+  text-transform: uppercase;
+  color: #6d6666;
+  padding: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 40px;
+}
+
+#name {
+  margin-left: 5px;
+  font-size: 35px;
+}
+
+#perfil {
+  margin-left: 75px;
+}
+
+#logout {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;  
+}
+
+#logout p {
+  opacity: 0.93;
+  position: absolute;
+  white-space: nowrap;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  color: rgba(46,42,42,1);
+  letter-spacing: 1px;
+}
+
+#logout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 200px;
+  height: 79px;
+  border-radius: 30px;
 }

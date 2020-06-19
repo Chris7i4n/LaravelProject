@@ -13,7 +13,7 @@ class CreateViolatedCaseEvolution extends Migration
      */
     public function up()
     {
-        Schema::create('violated_case_evolution', function (Blueprint $table) {
+        Schema::create('case_evolution_violated', function (Blueprint $table) {
             $table->integer('violated_id');
             $table->integer('case_evolution_id');
 

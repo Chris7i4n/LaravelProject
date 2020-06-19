@@ -39,56 +39,18 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a></div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="./dashboard.html">
-              <i class="material-icons">dashboard</i>
-              <p>DASHBOARD</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./cadastros.html">
-              <i class="material-icons">person</i>
-              <p>CADASTROS</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              <p>ACOMPANHAMENTOS</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              <p>RELATÓRIOS</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>USUÁRIOS</p>
-            </a>
-          </li>
-          <li class="nav-item active-pro ">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="material-icons">unarchive</i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
-        </ul>
-      </div>
+     
+
+        @include('sidebar.sidebar')
+       
     </div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+              <span id="page"></span> <a class="navbar-brand" href="javascript:;">Dashboard</a>
+              <span id="notification"><i class="material-icons">notifications</i></span>
           </div>
         </div>
       </nav>
@@ -102,12 +64,12 @@ The above copyright notice and this permission notice shall be included in all c
               </a>
             </div>
             <div class="col-md-12 col-lg-4 col-xl-4">
-              <a class="btn btn-block button-dashboard" id="button-accompaniment" href="#" role="button">
+              <a class="btn btn-block button-dashboard" id="button-accompaniment" href="./acompanhamentos.html" role="button">
                 Acompanhamento
               </a>
             </div>
             <div class="col-md-12 col-lg-4 col-xl-4">
-              <a class="btn btn-block button-dashboard" id="button-files" href="#" role="button">
+              <a class="btn btn-block button-dashboard" id="button-files" href="./documentos.html" role="button">
                 Documentos
               </a>
             </div>
@@ -115,13 +77,19 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
       </div>
       <footer class="footer">
-        <div class="container-fluid d-flex flex-row-reverse">
-          Ajuda
+        <div class="container-fluid">
+          <div class="row justify-content-end">
+            <div class="col-md-2">
+              Ajuda <i class="material-icons" id="help">help_outline</i>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
   </div>
-  
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+  </form>
   <!--   Core JS Files   -->
   <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
   <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
@@ -152,7 +120,7 @@ The above copyright notice and this permission notice shall be included in all c
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="{{asset('assets/js/plugins/nouislider.min.js')}}"></script>
   <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js')}}"></script>
   <!-- Library for adding dinamically elements -->
   <script src="{{asset('assets/js/plugins/arrive.min.js')}}"></script>
   <!--  Google Maps Plugin    -->
@@ -162,7 +130,7 @@ The above copyright notice and this permission notice shall be included in all c
   <!--  Notifications Plugin    -->
   <script src="{{asset('assets/js/plugins/bootstrap-notify.js')}}"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="{{asset('assets/js/material-dashboard.js?v=2.1.2')}}" type="text/javascript"></script>
+  <script src="{{asset('assets/js/material-dashboard.js')}}?v=2.1.2" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="{{asset('assets/demo/demo.js')}}"></script>
   <script>
@@ -338,7 +306,7 @@ The above copyright notice and this permission notice shall be included in all c
   </script>
   <script>
     $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
+      // Javascript method's body can be found in assets/js/demos.js')}}
       md.initDashboardPageCharts();
 
     });

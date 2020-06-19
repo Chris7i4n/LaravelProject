@@ -15,7 +15,7 @@ class CreateEthnicitiesTable extends Migration
     {
         Schema::create('ethnicities', function (Blueprint $table) {
             $table->id();
-            $table->string('ethnicty');
+            $table->string('ethnicity');
             $table->timestamps();
         });
     }

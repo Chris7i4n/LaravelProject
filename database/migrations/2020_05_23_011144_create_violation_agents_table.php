@@ -15,15 +15,19 @@ class CreateViolationAgentsTable extends Migration
     {
         Schema::create('violation_agents', function (Blueprint $table) {
             $table->id();
-            $table->string('kinship');
+            $table->integer('kinship_id');
             $table->integer('gender_id');
-			$table->integer('age');
             $table->timestamps();
             
 
             $table->foreign('gender_id')
             ->references('id')
             ->on('genders')
+            ->onDelete('cascade');
+
+            $table->foreign('kinship_id')
+            ->references('id')
+            ->on('kinships')
             ->onDelete('cascade');
         });
 

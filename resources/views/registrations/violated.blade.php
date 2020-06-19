@@ -39,49 +39,7 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a></div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="./dashboard.html">
-              <i class="material-icons">dashboard</i>
-              <p>DASHBOARD</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./cadastros.html">
-              <i class="material-icons">person</i>
-              <p>CADASTROS</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              <p>ACOMPANHAMENTOS</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              <p>RELATÓRIOS</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>USUÁRIOS</p>
-            </a>
-          </li>
-          <li class="nav-item active-pro ">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="material-icons">unarchive</i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
-        </ul>
-      </div>
+      @include('sidebar.sidebar')
     </div>
     <div class="main-panel">
       <!-- Navbar -->
@@ -102,28 +60,26 @@ The above copyright notice and this permission notice shall be included in all c
                   <h4 class="card-title">Cadastro de violado</h4>
                 </div>
                 <div class="card-body">
-                    
-                        <form method="POST" action="{{ route('violated.store') }}" >
-
-                            @csrf
+                <form method="POST" action="{{ route('violated.store') }}" >
+                  @csrf
                     <div class="row">
                       <div class="col-md-8">
                         <div class="form-group">
                           <label for="nome" style="color: #333333">Nome</label>
-                          <input type="email" class="form-control" id="nome" name="nome" placeholder="Digite o nome do violado">
+                          <input type="nome" class="form-control" id="nome" name="name" placeholder="Digite o nome do violado">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="data" style="color: #333333;">Data do fato</label>
-                          <input type="date" class="form-control" id="data" name="data">
+                          <input type="date" class="form-control" id="data" name="violation_date">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="sexo" style="color: #333333">Sexo</label>
                           <select class="form-control" id="sexo" name='gender'>
-                            <option value="1">Masculino</option>
+                            <option>Masculino</option>
                             <option>Feminino</option>
                           </select>
                         </div>
@@ -131,7 +87,7 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="idade" style="color: #333333">Idade</label>
-                          <select class="form-control" id="idade" name="idade">
+                          <select class="form-control" id="idade" name="age_range">
                             <option>0 a 3</option>
                             <option>4 a 6</option>
                             <option>7 a 11</option>
@@ -144,32 +100,32 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="etnia" style="color: #333333">Etnia</label>
-                          <select class="form-control" id="etnia">
-                            <option>Branco</option>
-                            <option>Negro</option>
-                            <option>Índio</option>
-                            <option>Pardo</option>
-                            <option>Sem informação</option>
+                          <select class="form-control" id="etnia" name ="ethnicity">
+                            <option value="Branco">Branco</option>
+                            <option value="Negro">Negro</option>
+                            <option value="Índio">Índio</option>
+                            <option value="Pardo">Pardo</option>
+                            <option value="Noinfo">Sem informação</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="deficiencia" style="color: #333333">Possui deficiencia física/mental aparente</label>
-                          <select class="form-control" id="deficiencia">
-                            <option>Sim</option>
-                            <option>Não</option>
+                          <select class="form-control" id="deficiencia" name="is_deficient">
+                            <option value="true">Sim</option>
+                            <option value="false">Não</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="localidade" style="color: #333333">Local de residência</label>
-                          <select class="form-control" id="localidade">
+                          <select class="form-control" id="localidade" name="locality">
                             <option>Urbana Central</option>
                             <option>Urbana Periférica</option>
                             <option>Rural</option>
-                            <option>Sem informação</option>
+                            <option value="Noinfo">Sem informação</option>
                           </select>
                         </div>
                       </div>
@@ -183,6 +139,11 @@ The above copyright notice and this permission notice shall be included in all c
             </div>
           </div>
         </div>
+        @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
       </div>
       <footer class="footer">
         <div class="container-fluid d-flex flex-row-reverse">

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CaseEvolution extends Model
 {
+    
     protected $fillable = [ 
         'sinan_identification_form_completed',
         'sinan_identification_form_forwarded',

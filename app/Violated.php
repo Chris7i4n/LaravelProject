@@ -8,7 +8,7 @@ class Violated extends Model
 {
     protected $fillable = [
         'name','gender_id','age','ethnicity_id','is_deficient',
-        'locality_id','violation_agent_id','user_id',
+        'locality_id','violation_agent_id','user_id','violation_date'
     ];
 
     public function Gender(){
@@ -28,6 +28,18 @@ class Violated extends Model
     }
 
     public function User(){
-        return $this->belongTo(User::Class);
+        return $this->belongsTo(User::Class);
+    }
+
+    public function AgeRange(){
+        return $this->belongsTo(Violated::class);
+    }
+
+    public function CaseEvolution(){
+        return $this->belongsTo(CaseEvolution::class);
+    }
+
+    public function ViolationData(){
+        return $this->hasOne(ViolationData::class);
     }
 }

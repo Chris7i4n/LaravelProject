@@ -20,11 +20,21 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-});
 
-Route::group(['prefix' => 'registration'], function () {
-    Route::resource('violated', 'ViolatedController');
-});
 
+    Route::prefix('registration')->group( function() {  
+        Route::resource('violated', 'ViolatedController');
+
+        Route::resource('violationdata', 'ViolationDataController')->except('create','store');
+        Route::get('violationdata/create/{violated}','ViolationDataController@create')->name('violationdata.create');
+        Route::post('violationdata/store/{violated}','ViolationDataController@store')->name('violationdata.store');
+
+        Route::resource('violationagent', 'ViolationAgentController')->except('create','store');
+        Route::get('violationagent/create/{violated}','ViolationAgentController@create')->name('violationagent.create');
+        Route::post('violationagent/store/{violated}','ViolationAgentController@store')->name('violationagent.store');
+    });
+
+
+});
 
 Route::get('/home', 'HomeController@index')->name('home');

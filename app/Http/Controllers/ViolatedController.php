@@ -3,17 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Violated;
+use App\Violated; 
+use App\AgeRange;
+use App\Gender;
+use App\Locality;
+use App\Ethnicity;
+use App\ViolationData;
+use Auth;
 
 class ViolatedController extends Controller
 {
 
-    private $violated;
+    // private $violated;
 
-    public function __contructor(Violated $violated)
-    {
-        $this->violated = $violated;
-    }
+    // public function __contructor(Violated $violated)
+    // {
+    //     $this->violated = $violated;
+    // }
 
     /**
      * Display a listing of the resource.
@@ -43,7 +49,21 @@ class ViolatedController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        
+        $violated = new Violated($request->all());  
+        $violated->user_id = auth::user()->id;
+        $gender = Gender::where('gender',$request['gender'])->first();
+        $locality = Locality::where('locality_name',$request['locality'])->first();
+        $ethnicity = Ethnicity::where('ethnicity', $request['ethnicity'])->first();
+        $agerange = AgeRange::where('age_range', $request['age_range'])->first();
+        $violated->gender()->associate($gender);
+        $violated->locality()->associate($locality);
+        $violated->ethnicity()->associate($ethnicity);
+        $violated->agerange()->associate($agerange);
+        $violated->save();
+        
+        return redirect()->route('violationdata.create',$violated->id);
+        
     }
 
     /**

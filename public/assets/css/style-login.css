@@ -1,0 +1,21 @@
+@font-face {
+  font-family: Gibson;
+  src: url(../fonts/Gibson-Regular.otf);
+}
+
+* {
+  font-family: Gibson;
+  letter-spacing: 2px;
+}
+
+body {
+  background-image: url('../img/lucas_metz_IQzPXpu__0c_unsplas.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#login {
+  background-color: rgba(255, 255, 255, .7);
+  width: 375px;
+  height: 811px;
+}

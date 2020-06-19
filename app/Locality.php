@@ -11,6 +11,6 @@ class Locality extends Model
     ];
 
     public function Violated(){
-        return $this->hasMany(Violated::class);
+        return $this->belongsTo(Violated::class);
     }
 }
